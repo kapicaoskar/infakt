@@ -66,8 +66,8 @@ const invoiceStatus = await check.invoiceStatus("invoice Reference Number") // r
 ```js
 import { Change } from "infakt"
 const change = new Change("inFakt API Key", true/false) // true and false is sandbox option
-change.setInvoiceAsPaid("invoice UUID") // sets invoice as paid
-change.deleteInvoice("invoice UUID") // deletes invoice from inFakt
+const setAsPaid = change.setInvoiceAsPaid("invoice UUID") // sets invoice as paid
+const deleteInvoice = change.deleteInvoice("invoice UUID") // deletes invoice from inFakt
 ```
 
 
@@ -77,7 +77,7 @@ change.deleteInvoice("invoice UUID") // deletes invoice from inFakt
 ```js
 import { Send } from "infakt"
 const send = new Send("inFakt API Key", true/false) // true and false is sandbox option
-send.sendToEmail("invoice UUID", "email") // sends email with invoice as PDF to mail
+const sendMail = send.sendToEmail("invoice UUID", "email") // sends email with invoice as PDF to mail
 ```
 
 
