@@ -23,7 +23,7 @@ const generate = new Generate("inFakt API Key", true/false) // true and false is
 const result = await generate.createInvoice({  // your own JSON data based on your preferences if you want more examples go to inFakt API Docs and see on your own what you can add here
     "invoice": {
         "payment_method": "cash",
-        "client_company_name": "Upik#3993",
+        "client_company_name": "Testowa JDG",
         "client_first_name": "Pani",
         "client_last_name": "Przykład",
         "client_business_activity_kind": "self_employed",
@@ -66,8 +66,8 @@ const invoiceStatus = await check.invoiceStatus("invoice Reference Number") // r
 ```js
 import { Change } from "infakt"
 const change = new Change("inFakt API Key", true/false) // true and false is sandbox option
-const isPaid = change.setInvoiceAsPaid("invoice UUID") // sets invoice as paid
-const deleteInvoice = change.deleteInvoice("invoice UUID") // deletes invoice from inFakt
+change.setInvoiceAsPaid("invoice UUID") // sets invoice as paid
+change.deleteInvoice("invoice UUID") // deletes invoice from inFakt
 ```
 
 
@@ -77,7 +77,18 @@ const deleteInvoice = change.deleteInvoice("invoice UUID") // deletes invoice fr
 ```js
 import { Send } from "infakt"
 const send = new Send("inFakt API Key", true/false) // true and false is sandbox option
-const sendToMail = send.sendToEmail("invoice UUID", "email") // sends email with invoice as PDF to mail
+send.sendToEmail("invoice UUID", "email") // sends email with invoice as PDF to mail
+```
+
+
+# Example response
+Without Error
+```js
+{ response: "markedAsPaid" }
+```
+With Error
+```js
+{ response: "If there was an error with the request and the status code is 401, it is most likely due to an incorrect apiKey or you have not set the sandbox value in the class definition. If the status code is 404, it means that the invoiceUUID is incorrect. If an error code of 422 appears, it indicates that function params may be bad!" , error : "Here is status code from Axios" }
 ```
 
 
